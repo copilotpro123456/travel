@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Incredible India Tours - Explore Beautiful Destinations</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-map-marked-alt"></i>
+                <span>Incredible India Tours</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#packages">Packages</a></li>
+                <li><a href="#destinations">Destinations</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Discover the Beauty of India</h1>
+            <p>Explore amazing destinations across India with our curated tour packages</p>
+            <a href="#packages" class="btn-primary">Explore Packages</a>
+        </div>
+    </section>
+
+    <!-- Featured Packages -->
+    <section id="packages" class="packages-section">
+        <div class="container">
+            <h2 class="section-title">Popular Tour Packages</h2>
+            <p class="section-subtitle">Choose from our handpicked tour packages for unforgettable experiences</p>
+            
+            <div class="packages-grid">
+                <!-- Package 1: Goa -->
+                <div class="package-card" data-package="goa">
+                    <div class="package-image">
+                        <img src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=500&h=300&fit=crop" alt="Goa Beach">
+                        <div class="price-tag">₹15,999</div>
+                    </div>
+                    <div class="package-info">
+                        <h3>Goa Beach Paradise</h3>
+                        <p class="duration"><i class="far fa-clock"></i> 4 Days / 3 Nights</p>
+                        <p class="description">Experience the vibrant beaches, nightlife, and Portuguese heritage of Goa</p>
+                        <ul class="features">
+                            <li><i class="fas fa-check"></i> Beach Activities</li>
+                            <li><i class="fas fa-check"></i> Water Sports</li>
+                            <li><i class="fas fa-check"></i> Heritage Walk</li>
+                            <li><i class="fas fa-check"></i> Sunset Cruise</li>
+                        </ul>
+                        <button class="btn-book" onclick="openBooking('Goa Beach Paradise')">Book Now</button>
+                    </div>
+                </div>
+
+                <!-- Package 2: Kerala -->
+                <div class="package-card" data-package="kerala">
+                    <div class="package-image">
+                        <img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=500&h=300&fit=crop" alt="Kerala Backwaters">
+                        <div class="price-tag">₹22,999</div>
+                    </div>
+                    <div class="package-info">
+                        <h3>Kerala Backwaters</h3>
+                        <p class="duration"><i class="far fa-clock"></i> 5 Days / 4 Nights</p>
+                        <p class="description">Cruise through serene backwaters and experience God's Own Country</p>
+                        <ul class="features">
+                            <li><i class="fas fa-check"></i> Houseboat Stay</li>
+                            <li><i class="fas fa-check"></i> Munnar Tea Gardens</li>
+                            <li><i class="fas fa-check"></i> Alleppey Backwaters</li>
+                            <li><i class="fas fa-check"></i> Kochi City Tour</li>
+                        </ul>
+                        <button class="btn-book" onclick="openBooking('Kerala Backwaters')">Book Now</button>
+                    </div>
+                </div>
+
+                <!-- Package 3: Rajasthan -->
+                <div class="package-card" data-package="rajasthan">
+                    <div class="package-image">
+                        <img src="https://images.unsplash.com/photo-1477587458883-47145ed94245?w=500&h=300&fit=crop" alt="Rajasthan Palace">
+                        <div class="price-tag">₹28,999</div>
+                    </div>
+                    <div class="package-info">
+                        <h3>Royal Rajasthan</h3>
+                        <p class="duration"><i class="far fa-clock"></i> 6 Days / 5 Nights</p>
+                        <p class="description">Explore the land of kings with magnificent forts and palaces</p>
+                        <ul class="features">
+                            <li><i class="fas fa-check"></i> Jaipur City Palace</li>
+                            <li><i class="fas fa-check"></i> Udaipur Lake Palace</li>
+                            <li><i class="fas fa-check"></i> Jaisalmer Desert Safari</li>
+                            <li><i class="fas fa-check"></i> Traditional Meals</li>
+                        </ul>
+                        <button class="btn-book" onclick="openBooking('Royal Rajasthan')">Book Now</button>
+                    </div>
+                </div>
+
+                <!-- Package 4: Himachal -->
+                <div class="package-card" data-package="himachal">
+                    <div class="package-image">
+                        <img src="https://images.unsplash.com/photo-1566321996530-140c58918053?w=500&h=300&fit=crop" alt="Himachal Mountains">
+                        <div class="price-tag">₹19,999</div>
+                    </div>
+                    <div class="package-info">
+                        <h3>Himachal Hill Station</h3>
+                        <p class="duration"><i class="far fa-clock"></i> 5 Days / 4 Nights</p>
+                        <p class="description">Escape to the mountains and enjoy breathtaking Himalayan views</p>
+                        <ul class="features">
+                            <li><i class="fas fa-check"></i> Shimla & Manali</li>
+                            <li><i class="fas fa-check"></i> Solang Valley</li>
+                            <li><i class="fas fa-check"></i> Rohtang Pass</li>
+                            <li><i class="fas fa-check"></i> Adventure Activities</li>
+                        </ul>
+                        <button class="btn-book" onclick="openBooking('Himachal Hill Station')">Book Now</button>
+                    </div>
+                </div>
+
+                <!-- Package 5: Golden Triangle -->
+                <div class="package-card" data-package="golden-triangle">
+                    <div class="package-image">
+                        <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=500&h=300&fit=crop" alt="Taj Mahal">
+                        <div class="price-tag">₹25,999</div>
+                    </div>
+                    <div class="package-info">
+                        <h3>Golden Triangle Tour</h3>
+                        <p class="duration"><i class="far fa-clock"></i> 5 Days / 4 Nights</p>
+                        <p class="description">Discover Delhi, Agra, and Jaipur - the heart of Indian culture</p>
+                        <ul class="features">
+                            <li><i class="fas fa-check"></i> Taj Mahal Visit</li>
+                            <li><i class="fas fa-check"></i> Red Fort & Qutub Minar</li>
+                            <li><i class="fas fa-check"></i> Amber Fort</li>
+                            <li><i class="fas fa-check"></i> Guided Tours</li>
+                        </ul>
+                        <button class="btn-book" onclick="openBooking('Golden Triangle Tour')">Book Now</button>
+                    </div>
+                </div>
+
+                <!-- Package 6: Andaman -->
+                <div class="package-card" data-package="andaman">
+                    <div class="package-image">
+                        <img src="https://images.unsplash.com/photo-1587474260584-136574528ed5?w=500&h=300&fit=crop" alt="Andaman Islands">
+                        <div class="price-tag">₹32,999</div>
+                    </div>
+                    <div class="package-info">
+                        <h3>Andaman Islands</h3>
+                        <p class="duration"><i class="far fa-clock"></i> 6 Days / 5 Nights</p>
+                        <p class="description">Pristine beaches, crystal clear waters, and tropical paradise</p>
+                        <ul class="features">
+                            <li><i class="fas fa-check"></i> Havelock Island</li>
+                            <li><i class="fas fa-check"></i> Radhanagar Beach</li>
+                            <li><i class="fas fa-check"></i> Scuba Diving</li>
+                            <li><i class="fas fa-check"></i> Cellular Jail Tour</li>
+                        </ul>
+                        <button class="btn-book" onclick="openBooking('Andaman Islands')">Book Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Destinations Section -->
+    <section id="destinations" class="destinations-section">
+        <div class="container">
+            <h2 class="section-title">Top Destinations</h2>
+            <p class="section-subtitle">Explore the most beautiful places in India</p>
+            
+            <div class="destinations-grid">
+                <div class="destination-card">
+                    <img src="https://images.unsplash.com/photo-1587474260584-136574528ed5?w=400&h=300&fit=crop" alt="Beaches">
+                    <div class="destination-overlay">
+                        <h3>Beaches</h3>
+                        <p>Goa, Andaman, Gokarna</p>
+                    </div>
+                </div>
+                <div class="destination-card">
+                    <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?w=400&h=300&fit=crop" alt="Mountains">
+                    <div class="destination-overlay">
+                        <h3>Mountains</h3>
+                        <p>Himachal, Uttarakhand, Kashmir</p>
+                    </div>
+                </div>
+                <div class="destination-card">
+                    <img src="https://images.unsplash.com/photo-1477587458883-47145ed94245?w=400&h=300&fit=crop" alt="Heritage">
+                    <div class="destination-overlay">
+                        <h3>Heritage</h3>
+                        <p>Rajasthan, Delhi, Agra</p>
+                    </div>
+                </div>
+                <div class="destination-card">
+                    <img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=400&h=300&fit=crop" alt="Backwaters">
+                    <div class="destination-overlay">
+                        <h3>Backwaters</h3>
+                        <p>Kerala, Alleppey, Kumarakom</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-us">
+        <div class="container">
+            <h2 class="section-title">Why Choose Us</h2>
+            <div class="features-grid">
+                <div class="feature-box">
+                    <i class="fas fa-wallet"></i>
+                    <h3>Best Price Guarantee</h3>
+                    <p>We offer the most competitive prices for all tour packages</p>
+                </div>
+                <div class="feature-box">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Safe & Secure</h3>
+                    <p>Your safety is our priority with verified hotels and transport</p>
+                </div>
+                <div class="feature-box">
+                    <i class="fas fa-headset"></i>
+                    <h3>24/7 Support</h3>
+                    <p>Round the clock customer support for all your queries</p>
+                </div>
+                <div class="feature-box">
+                    <i class="fas fa-users"></i>
+                    <h3>Expert Guides</h3>
+                    <p>Experienced local guides to enhance your travel experience</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-subtitle">Have questions? We'd love to hear from you</p>
+            
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+91 98765 43210</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@incredibleindiatours.com</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Address</h4>
+                            <p>123 Travel Street, New Delhi, India</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <form class="contact-form" id="contactForm">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <input type="tel" placeholder="Phone Number" required>
+                    <select>
+                        <option value="">Select Package</option>
+                        <option value="goa">Goa Beach Paradise</option>
+                        <option value="kerala">Kerala Backwaters</option>
+                        <option value="rajasthan">Royal Rajasthan</option>
+                        <option value="himachal">Himachal Hill Station</option>
+                        <option value="golden-triangle">Golden Triangle Tour</option>
+                        <option value="andaman">Andaman Islands</option>
+                    </select>
+                    <textarea placeholder="Your Message" rows="5" required></textarea>
+                    <button type="submit" class="btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Modal -->
+    <div class="modal" id="bookingModal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeBooking()">&times;</span>
+            <h2>Book Your Tour</h2>
+            <p id="selectedPackage" class="package-name"></p>
+            
+            <form id="bookingForm">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" id="name" required placeholder="Enter your full name">
+                </div>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" id="email" required placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" id="phone" required placeholder="Enter your phone number">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Travel Date</label>
+                        <input type="date" id="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Number of People</label>
+                        <input type="number" id="people" min="1" max="20" required placeholder="2">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Special Requirements</label>
+                    <textarea id="requirements" rows="3" placeholder="Any special requests or dietary requirements"></textarea>
+                </div>
+                <button type="submit" class="btn-primary btn-full">Confirm Booking</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Incredible India Tours</h3>
+                    <p>Your trusted partner for exploring the beauty and diversity of India. We create unforgettable travel experiences.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#packages">Packages</a></li>
+                        <li><a href="#destinations">Destinations</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Popular Packages</h4>
+                    <ul>
+                        <li>Goa Beach Paradise</li>
+                        <li>Kerala Backwaters</li>
+                        <li>Royal Rajasthan</li>
+                        <li>Golden Triangle Tour</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Incredible India Tours. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
