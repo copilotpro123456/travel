@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Add data attributes to packages for filtering -->
 </head>
 <body>
     <!-- Navigation -->
@@ -46,7 +47,7 @@
             
             <div class="packages-grid">
                 <!-- Package 1: Goa -->
-                <div class="package-card" data-package="goa">
+                <div class="package-card" data-package="goa" data-price="budget" data-duration="short" data-type="beach">
                     <div class="package-image">
                         <img src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=500&h=300&fit=crop" alt="Goa Beach">
                         <div class="price-tag">₹15,999</div>
@@ -66,7 +67,7 @@
                 </div>
 
                 <!-- Package 2: Kerala -->
-                <div class="package-card" data-package="kerala">
+                <div class="package-card" data-package="kerala" data-price="mid" data-duration="medium" data-type="beach">
                     <div class="package-image">
                         <img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=500&h=300&fit=crop" alt="Kerala Backwaters">
                         <div class="price-tag">₹22,999</div>
@@ -86,7 +87,7 @@
                 </div>
 
                 <!-- Package 3: Rajasthan -->
-                <div class="package-card" data-package="rajasthan">
+                <div class="package-card" data-package="rajasthan" data-price="mid" data-duration="medium" data-type="heritage">
                     <div class="package-image">
                         <img src="https://images.unsplash.com/photo-1477587458883-47145ed94245?w=500&h=300&fit=crop" alt="Rajasthan Palace">
                         <div class="price-tag">₹28,999</div>
@@ -106,7 +107,7 @@
                 </div>
 
                 <!-- Package 4: Himachal -->
-                <div class="package-card" data-package="himachal">
+                <div class="package-card" data-package="himachal" data-price="budget" data-duration="medium" data-type="mountain">
                     <div class="package-image">
                         <img src="https://images.unsplash.com/photo-1566321996530-140c58918053?w=500&h=300&fit=crop" alt="Himachal Mountains">
                         <div class="price-tag">₹19,999</div>
@@ -126,7 +127,7 @@
                 </div>
 
                 <!-- Package 5: Golden Triangle -->
-                <div class="package-card" data-package="golden-triangle">
+                <div class="package-card" data-package="golden-triangle" data-price="mid" data-duration="medium" data-type="heritage">
                     <div class="package-image">
                         <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=500&h=300&fit=crop" alt="Taj Mahal">
                         <div class="price-tag">₹25,999</div>
@@ -146,7 +147,7 @@
                 </div>
 
                 <!-- Package 6: Andaman -->
-                <div class="package-card" data-package="andaman">
+                <div class="package-card" data-package="andaman" data-price="premium" data-duration="medium" data-type="beach">
                     <div class="package-image">
                         <img src="https://images.unsplash.com/photo-1587474260584-136574528ed5?w=500&h=300&fit=crop" alt="Andaman Islands">
                         <div class="price-tag">₹32,999</div>
@@ -231,6 +232,40 @@
                     <i class="fas fa-users"></i>
                     <h3>Expert Guides</h3>
                     <p>Experienced local guides to enhance your travel experience</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search & Filter Section -->
+    <section class="search-filter-section">
+        <div class="container">
+            <h2 class="section-title">Find Your Perfect Package</h2>
+            <div class="search-filter-wrapper">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Search destinations, packages...">
+                </div>
+                <div class="filter-options">
+                    <select id="priceFilter">
+                        <option value="">All Prices</option>
+                        <option value="budget">Budget (Under ₹20,000)</option>
+                        <option value="mid">Mid-Range (₹20,000 - ₹30,000)</option>
+                        <option value="premium">Premium (Above ₹30,000)</option>
+                    </select>
+                    <select id="durationFilter">
+                        <option value="">All Durations</option>
+                        <option value="short">Short (3-4 Days)</option>
+                        <option value="medium">Medium (5-6 Days)</option>
+                        <option value="long">Long (7+ Days)</option>
+                    </select>
+                    <select id="typeFilter">
+                        <option value="">All Types</option>
+                        <option value="beach">Beach</option>
+                        <option value="mountain">Mountain</option>
+                        <option value="heritage">Heritage</option>
+                        <option value="adventure">Adventure</option>
+                    </select>
                 </div>
             </div>
         </div>
@@ -364,6 +399,11 @@
             </div>
         </div>
     </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <script src="script.js"></script>
 </body>
