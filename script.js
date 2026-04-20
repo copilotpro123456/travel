@@ -13,6 +13,82 @@ document.querySelectorAll('.nav-links a').forEach(link => {
     });
 });
 
+// Search and Filter Functionality
+const searchInput = document.getElementById('searchInput');
+const priceFilter = document.getElementById('priceFilter');
+const durationFilter = document.getElementById('durationFilter');
+const typeFilter = document.getElementById('typeFilter');
+const packagesGrid = document.querySelector('.packages-grid');
+
+// Add no results message
+const noResults = document.createElement('div');
+noResults.className = 'no-results';
+noResults.innerHTML = '<i class="fas fa-search"></i><p>No packages found matching your criteria</p>';
+packagesGrid.parentElement.appendChild(noResults);
+
+function filterPackages() {
+    const searchTerm = searchInput.value.toLowerCase();
+    const priceValue = priceFilter.value;
+    const durationValue = durationFilter.value;
+    const typeValue = typeFilter.value;
+    
+    let visibleCount = 0;
+    
+    document.querySelectorAll('.package-card').forEach(card => {
+        const packageName = card.querySelector('h3').textContent.toLowerCase();
+        const packageDesc = card.querySelector('.description').textContent.toLowerCase();
+        const cardPrice = card.getAttribute('data-price');
+        const cardDuration = card.getAttribute('data-duration');
+        const cardType = card.getAttribute('data-type');
+        
+        // Check search term
+        const matchesSearch = packageName.includes(searchTerm) || packageDesc.includes(searchTerm);
+        
+        // Check filters
+        const matchesPrice = !priceValue || cardPrice === priceValue;
+        const matchesDuration = !durationValue || cardDuration === durationValue;
+        const matchesType = !typeValue || cardType === typeValue;
+        
+        if (matchesSearch && matchesPrice && matchesDuration && matchesType) {
+            card.classList.remove('hidden');
+            visibleCount++;
+        } else {
+            card.classList.add('hidden');
+        }
+    });
+    
+    // Show/hide no results message
+    if (visibleCount === 0) {
+        noResults.classList.add('active');
+    } else {
+        noResults.classList.remove('active');
+    }
+}
+
+// Event listeners for filters
+searchInput.addEventListener('input', filterPackages);
+priceFilter.addEventListener('change', filterPackages);
+durationFilter.addEventListener('change', filterPackages);
+typeFilter.addEventListener('change', filterPackages);
+
+// Back to Top Button
+const backToTopBtn = document.getElementById('backToTop');
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+        backToTopBtn.classList.add('active');
+    } else {
+        backToTopBtn.classList.remove('active');
+    }
+});
+
+backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
 // Booking Modal Functions
 const bookingModal = document.getElementById('bookingModal');
 const selectedPackageElement = document.getElementById('selectedPackage');
