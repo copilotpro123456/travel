@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Package Details - Incredible India Tours</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .detail-hero {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .package-detail-section {
+            padding: 3rem 0;
+        }
+
+        .detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .detail-image {
+            background: var(--gradient-secondary);
+            border-radius: 12px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8rem;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .detail-info {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .detail-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+        }
+
+        .detail-location {
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .detail-description {
+            color: var(--text-color);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .detail-specs {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: var(--light-color);
+            border-radius: 8px;
+        }
+
+        .spec-item {
+            text-align: center;
+        }
+
+        .spec-label {
+            font-size: 0.9rem;
+            color: var(--text-color);
+            display: block;
+        }
+
+        .spec-value {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .detail-price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .detail-price span {
+            font-size: 1rem;
+            font-weight: normal;
+            color: var(--text-color);
+        }
+
+        .itinerary-section {
+            background: white;
+            padding: 3rem 0;
+        }
+
+        .itinerary-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .day-card {
+            background: var(--light-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--primary-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .day-card:hover {
+            transform: translateX(10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .day-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .day-number {
+            background: var(--gradient-primary);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .day-title {
+            font-size: 1.5rem;
+            color: var(--dark-color);
+            margin: 0;
+        }
+
+        .activities-list {
+            list-style: none;
+            padding-left: 4rem;
+        }
+
+        .activities-list li {
+            padding: 0.5rem 0;
+            color: var(--text-color);
+            position: relative;
+        }
+
+        .activities-list li::before {
+            content: '✓';
+            color: var(--success-color);
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        .booking-cta {
+            position: sticky;
+            bottom: 20px;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-xl);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .detail-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .detail-image {
+                height: 300px;
+                font-size: 6rem;
+            }
+
+            .detail-title {
+                font-size: 2rem;
+            }
+
+            .detail-specs {
+                grid-template-columns: 1fr;
+            }
+
+            .booking-cta {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .activities-list {
+                padding-left: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../index.html" class="logo">🇮🇳 Incredible India Tours</a>
+                <div class="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../pages/index.html#packages">Packages</a></li>
+                    <li><a href="../pages/index.html#destinations">Destinations</a></li>
+                    <li><a href="../pages/index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Detail Hero -->
+    <section class="detail-hero">
+        <div class="container">
+            <h1 id="packageTitle">Package Name</h1>
+            <p id="packageLocation">Location</p>
+        </div>
+    </section>
+
+    <!-- Package Details -->
+    <section class="package-detail-section">
+        <div class="container">
+            <div class="detail-grid">
+                <div class="detail-image" id="packageImage">🏖️</div>
+                <div class="detail-info">
+                    <h2 class="detail-title" id="packageTitle">Package Title</h2>
+                    <p class="detail-location" id="packageLocation">📍 Location</p>
+                    <p class="detail-description" id="packageDescription">Package description will appear here.</p>
+                    
+                    <div class="detail-specs">
+                        <div class="spec-item">
+                            <span class="spec-label">Duration</span>
+                            <span class="spec-value" id="packageDuration">5 Days</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Type</span>
+                            <span class="spec-value" id="packageType">Beach</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Rating</span>
+                            <span class="spec-value" id="packageRating">⭐ 4.8</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Group Size</span>
+                            <span class="spec-value">2-10</span>
+                        </div>
+                    </div>
+
+                    <div class="detail-price" id="packagePrice">₹12,999 <span>per person</span></div>
+
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <button class="btn btn-primary" id="bookDetailBtn" style="flex: 1;">Book Now</button>
+                        <button class="btn btn-outline" onclick="window.history.back()" style="flex: 1;">Back to Packages</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Itinerary Section -->
+    <section class="itinerary-section">
+        <div class="container itinerary-container">
+            <h2 class="section-title">Day-wise Itinerary</h2>
+            <p class="section-subtitle">Complete schedule of your journey</p>
+            <div id="itinerary">
+                <!-- Itinerary will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>About Us</h3>
+                    <p style="color: #cbd5e1; line-height: 1.8;">We are India's premier tour operator, offering curated travel experiences across 30+ amazing destinations.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <ul style="color: #cbd5e1;">
+                        <li>📍 New Delhi, India</li>
+                        <li>📞 +91 98765 43210</li>
+                        <li>✉️ info@incredibleindiatours.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Incredible India Tours. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top">↑</div>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

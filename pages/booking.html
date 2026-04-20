@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Tour - Incredible India Tours</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .booking-hero {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .booking-section {
+            padding: 3rem 0;
+            min-height: 60vh;
+        }
+
+        .booking-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .selected-package-info {
+            background: var(--light-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .selected-package-info h3 {
+            color: var(--dark-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .selected-package-info p {
+            color: var(--text-color);
+            margin: 0.3rem 0;
+        }
+
+        .booking-form .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .booking-form label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+
+        .booking-form input,
+        .booking-form select,
+        .booking-form textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .booking-form input:focus,
+        .booking-form select:focus,
+        .booking-form textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .success-message {
+            display: none;
+            background: #d1fae5;
+            border: 2px solid var(--success-color);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .success-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .success-message h2 {
+            color: var(--success-color);
+            margin-bottom: 1rem;
+        }
+
+        .booking-details {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            text-align: left;
+        }
+
+        .booking-details p {
+            margin: 0.5rem 0;
+            color: var(--text-color);
+        }
+
+        .booking-details strong {
+            color: var(--dark-color);
+        }
+
+        @media (max-width: 768px) {
+            .booking-container {
+                padding: 1.5rem;
+            }
+
+            .booking-hero h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../index.html" class="logo">🇮🇳 Incredible India Tours</a>
+                <div class="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../pages/index.html#packages">Packages</a></li>
+                    <li><a href="../pages/index.html#destinations">Destinations</a></li>
+                    <li><a href="../pages/index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Booking Hero -->
+    <section class="booking-hero">
+        <div class="container">
+            <h1>Complete Your Booking</h1>
+            <p>Fill in your details to confirm your tour package</p>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section class="booking-section">
+        <div class="container">
+            <div class="booking-container">
+                <!-- Success Message -->
+                <div id="bookingSuccess" class="success-message">
+                    <div class="success-icon">✅</div>
+                    <h2>Booking Confirmed!</h2>
+                    <p>Your tour has been successfully booked.</p>
+                    <div class="booking-details">
+                        <p><strong>Booking ID:</strong> <span id="bookingId"></span></p>
+                        <p><strong>Package:</strong> <span id="bookingPackage"></span></p>
+                        <p><strong>Name:</strong> <span id="bookingName"></span></p>
+                        <p style="margin-top: 1rem; color: var(--success-color); font-weight: 600;">We will contact you shortly with further details!</p>
+                    </div>
+                    <button class="btn btn-primary" onclick="window.location.href='../index.html'" style="margin-top: 1.5rem;">Back to Home</button>
+                </div>
+
+                <!-- Booking Form -->
+                <form id="bookingForm" class="booking-form" onsubmit="handleBooking(event)">
+                    <div class="selected-package-info">
+                        <h3 id="selectedPackageName">Loading package...</h3>
+                        <p><strong>Duration:</strong> <span id="selectedPackageDuration"></span></p>
+                        <p><strong>Price:</strong> <span id="selectedPackagePrice"></span> per person</p>
+                        <p><strong>Type:</strong> <span id="selectedPackageType"></span></p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" required placeholder="Enter your full name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" required placeholder="your@email.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" required placeholder="+91 XXXXX XXXXX">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="travelDate">Preferred Travel Date *</label>
+                        <input type="date" id="travelDate" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="travelers">Number of Travelers *</label>
+                        <select id="travelers" required>
+                            <option value="">Select number of travelers</option>
+                            <option value="1">1 Person</option>
+                            <option value="2">2 Persons</option>
+                            <option value="3">3 Persons</option>
+                            <option value="4">4 Persons</option>
+                            <option value="5">5 Persons</option>
+                            <option value="6">6+ Persons</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="specialRequests">Special Requests (Optional)</label>
+                        <textarea id="specialRequests" rows="3" placeholder="Any special requirements or preferences..."></textarea>
+                    </div>
+
+                    <div style="background: #fef3c7; padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem; border-left: 4px solid #f59e0b;">
+                        <p style="color: #92400e; font-size: 0.9rem; margin: 0;">
+                            <strong>Note:</strong> This is a demo booking. In a real website, you would be redirected to a payment gateway to complete the transaction.
+                        </p>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1rem; font-size: 1.1rem;">Confirm Booking</button>
+
+                    <button type="button" class="btn btn-outline" onclick="window.history.back()" style="width: 100%; margin-top: 1rem;">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2024 Incredible India Tours. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script>
+        // Load selected package info
+        document.addEventListener('DOMContentLoaded', function() {
+            const selectedPackage = JSON.parse(localStorage.getItem('selectedPackage'));
+            
+            if (selectedPackage) {
+                document.getElementById('selectedPackageName').textContent = selectedPackage.title;
+                document.getElementById('selectedPackageDuration').textContent = `${selectedPackage.duration} Days`;
+                document.getElementById('selectedPackagePrice').textContent = `₹${selectedPackage.price.toLocaleString()}`;
+                document.getElementById('selectedPackageType').textContent = selectedPackage.type;
+            } else {
+                document.getElementById('selectedPackageName').textContent = 'No package selected';
+                document.querySelector('.booking-form').innerHTML = '<p style="text-align: center; color: var(--text-color);">Please select a package from our packages page first.</p><button class="btn btn-primary" onclick="window.location.href=\'../pages/index.html\'" style="margin-top: 1rem;">Browse Packages</button>';
+            }
+
+            // Set minimum date to today
+            const today = new Date().toISOString().split('T')[0];
+            const travelDateInput = document.getElementById('travelDate');
+            if (travelDateInput) {
+                travelDateInput.setAttribute('min', today);
+            }
+        });
+    </script>
+</body>
+</html>
